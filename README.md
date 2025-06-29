@@ -1,4 +1,4 @@
-# pizza_project_1_intership
+### pizza_project_1_intership
 It is my Data Analytics Internship Project Number 1 titled "pizza sales" in UNIFIED MENTOR.
 # 🍕 Plato’s Pizza Data Analysis – Project Scope & Objectives
 
@@ -58,3 +58,152 @@ Analyze one year of transactional data from Plato’s Pizza to uncover trends in
 - Data covers one year of transactions  
 - Assumptions (e.g., number of people per order) may be used if customer count is not provided  
 - Data cleaning will be the next step before analysis begins
+
+# 📊 Key KPIs for Pizza Sales Analysis (with SQL Queries)
+### Note: All screenshots of result in 'INT Project 1 - Plato’s Pizza Data Analysis Report' file
+
+## 1. 🧾 Total Revenue
+Definition: Total money earned from all orders  
+ Formula: SUM(total_price)  
+```sql
+SELECT 
+round(SUM(total_price),2) AS total_revenue
+FROM pizza_sales;
+```
+
+## 2. 💰 Average Order Value (AOV)
+Definition: Average revenue generated per order  
+ Formula: SUM(total_price) / COUNT(DISTINCT order_id)
+```sql
+SELECT 
+ROUND(SUM(total_price) * 1.0 / COUNT(DISTINCT order_id), 2) AS avg_order_value
+FROM pizza_sales;
+```
+
+
+## 3. 🍕 Total Pizzas Sold
+Definition: Total number of pizza units sold  
+ Formula: SUM(quantity)
+```sql
+SELECT 
+  SUM(quantity) AS total_pizzas_sold
+FROM pizza_sales;
+```
+
+## 4. 🏆 Best-Selling Pizzas(Top 5)
+Definition: Pizzas with the highest quantity sold  
+ Formula: SUM(quantity) grouped by pizza_name
+```sql
+SELECT TOP 5
+  pizza_name,
+  SUM(quantity) AS total_sold
+FROM pizza_sales
+GROUP BY pizza_name
+ORDER BY total_sold DESC;
+```
+
+## 5. ❌ Worst-Selling Pizzas(Bottom 5)
+Definition: Pizzas with the lowest quantity sold
+```sql
+SELECT TOP 5
+  pizza_name,
+  SUM(quantity) AS total_sold
+FROM pizza_sales
+GROUP BY pizza_name
+ORDER BY total_sold ASC;
+```
+
+## 6. ⏰ Peak Order Hour(TOP 5)
+Definition: The hour of the day when most sales occur  
+ Formula: Group by HOUR(order_time)
+```sql
+SELECT TOP 5
+  DATEPART(HOUR, order_time) AS order_hour,
+  round(SUM(total_price),2) AS hourly_revenue
+FROM pizza_sales
+GROUP BY DATEPART(HOUR, order_time)
+ORDER BY hourly_revenue DESC;
+```
+
+## 7. 📅 Busiest Day of the Week
+Definition: A Day with the highest total revenue  
+ Formula: Group by weekday name
+```sql
+SELECT 
+  DATENAME(WEEKDAY, CAST(order_date AS DATE)) AS day_name,
+  round(SUM(total_price),2) AS daily_revenue
+FROM pizza_sales
+GROUP BY DATENAME(WEEKDAY, CAST(order_date AS DATE))
+ORDER BY daily_revenue DESC;
+```
+
+## 8. 📐 Revenue by Pizza Size
+Definition: Total revenue earned by each pizza size  
+```sql
+SELECT 
+  pizza_size,
+  round(SUM(total_price),2) AS revenue
+FROM pizza_sales
+GROUP BY pizza_size
+ORDER BY revenue DESC;
+```
+
+## 9. 🥦 Revenue by Pizza Category
+Definition: Revenue earned by Classic, Veggie, Supreme, and Chicken  
+```sql
+SELECT 
+  pizza_category,
+  SUM(total_price) AS revenue
+FROM pizza_sales
+GROUP BY pizza_category
+ORDER BY revenue DESC;
+```
+
+## 10. 🪑 Estimated Seat Utilisation Rate
+Customer Estimation Logic
+We analysed 21,350 unique orders and 48,620 pizza line items. On average, each order consists of 2.28 pizza items.
+Therefore, we estimate customer count based on the number of order_details_id, assuming each pizza item represents one person (≈ 1 pizza per person).
+This results in an estimated 48,620 customers served over the year.
+```sql
+SELECT 
+  ROUND(CAST(48620 AS FLOAT)/60, 2) AS total_full_seat_cycles,
+  ROUND(CAST(48620 AS FLOAT) / 60 / 365, 2) AS avg_full_seat_cycles_per_day,
+  ROUND(CAST(48620 AS FLOAT) / (365 * 60) * 100, 2) AS avg_daily_seat_utilization_percent
+```
+Seating Utilisation Insight:
+Over the years, Plato’s Pizza served approximately 48,620 customers.
+Given 60 seats and 365 days, this equates to a daily average seating utilisation of 222%, meaning each seat is used 2.2 times daily.
+This reflects a healthy table turnover, especially during peak hours.
+
+# Data Cleaning
+
+1. Changed order_details_id, order_id, quantity, unit_price and total_price to their respective number formats(int and float) from default string formats.  
+2. Changed order_date and order_time to respective date and time format from string format.  
+3. Trimmed all cells in a different sheet, applying a formula:  
+
+
+#### =ARRAYFORMULA(TRIM(pizza_sales!A1:L48621))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
