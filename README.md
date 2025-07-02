@@ -175,6 +175,40 @@ Over the years, Plato’s Pizza served approximately 48,620 customers.
 Given 60 seats and 365 days, this equates to a daily average seating utilisation of 222%, meaning each seat is used 2.2 times daily.
 This reflects a healthy table turnover, especially during peak hours.
 
+Initially, we used order_details_id as a proxy for customer count, assuming each unique pizza configuration was intended for a separate person.
+However, for more accurate seating capacity analysis, we use SUM(quantity) to represent estimated customers, under the assumption that 1 pizza ≈ 1 customer. This provides a closer match to real-world dine-in behavior and accounts for actual volume of items served.  
+
+#### Note: Screenshots of individual charts given in Data Analysis Report docx file.
+
+This makes Seat Turnover Rate 2.264 times per day. 
+Note:- We can make the assumption that 1 table is occupied by 4 seats.
+
+## 11. Busiest Day of the Year 
+As seen in Tableau Chart Busiest Day is Friday
+
+#### Note: Screenshots of individual charts given in Data Analysis Report docx file.
+
+During this day, the highest of 8242 pizzas are made in a year.
+
+## 12. Busiest Time of the Year 
+As seen in Tableau Chart Busiest Time is 12:00 PM.
+
+#### Note: Screenshots of individual charts given in Data Analysis Report docx file.
+
+During this time, the highest of 6776 pizzas are made in a year.
+Pizzas made at 12 PM on Fridays only, using SQL
+```sql
+SELECT SUM(quantity) AS pizzas_at_noon_on_friday
+FROM pizza_data.dbo.pizza_sales
+WHERE DATEPART(HOUR, order_time) = 12
+  AND DATENAME(WEEKDAY, order_date) = 'Friday';
+```
+
+
+
+
+
+
 # Data Cleaning
 
 1. Changed order_details_id, order_id, quantity, unit_price and total_price to their respective number formats(int and float) from default string formats.  
@@ -187,15 +221,13 @@ This reflects a healthy table turnover, especially during peak hours.
 # Tableau Dashboards
 
 ## Dashboard 1
-Dashboard 1
-![Dashboard 1](./Screenshot (25).png)
+![Busiest Day: Friday, Busiest Hour: 12 AM](./dashboard1.png)  
 
+## Dashboard 2
+![Best Selling: The Classic Deluxe Pizza, Worst Selling: The Brie Carre Pizza](./dashboard2.png)
 
-
-
-Dashboard 2
-
-Dashboard 3
+## Dashboard 3
+![Average Order Value: $38.31, Seat Turnover Rate: 2.264](./dashboard3.png)
 
 
 
