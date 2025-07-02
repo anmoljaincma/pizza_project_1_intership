@@ -188,7 +188,7 @@ This reflects a healthy table turnover, especially during peak hours.
 
 ## Dashboard 1
 Dashboard 1
-
+![Dashboard 1](./Screenshot (25).png)
 
 
 
