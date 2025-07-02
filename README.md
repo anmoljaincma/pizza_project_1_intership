@@ -184,6 +184,21 @@ This reflects a healthy table turnover, especially during peak hours.
 
 #### =ARRAYFORMULA(TRIM(pizza_sales!A1:L48621))
 
+# Tableau Dashboards
+
+## Dashboard 1
+Dashboard 1
+
+
+
+
+
+Dashboard 2
+
+Dashboard 3
+
+
+
 
 
 
