@@ -229,7 +229,7 @@ WHERE DATEPART(HOUR, order_time) = 12
 ## Dashboard 3
 ![Average Order Value: $38.31, Seat Turnover Rate: 2.264](./dashboard3.png)
 
-## 📌 Key Insights
+## 📌 Key Insights 
 
 * 🔥 **Friday** is the busiest day in terms of both revenue and orders.
 * ⏰ **12 PM** is the peak hour, with the highest pizza production.
