@@ -266,7 +266,7 @@ Below are the business questions posed by Plato’s Pizza and the sections where
    → Answered in [Key Insights – Bullet 4](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-key-insights)
 
 6. **Are there opportunities to increase sales through promotions or combos?**  
-   → Answered in [Recommendations](#recommendations) _(if you added this section)_
+   → Answered in [Recommendations](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-recommendations)
 
 
 
