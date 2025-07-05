@@ -251,19 +251,19 @@ WHERE DATEPART(HOUR, order_time) = 12
 Below are the business questions posed by Plato’s Pizza and the sections where they are answered:
 
 1. **What days and times do we tend to be busiest?**  
-   → Answered in [Key Insights – Bullet 1 & 2](#key-insights)
+   → Answered in [Key Insights – Bullet 1 & 2](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-key-insights)
 
 2. **How many pizzas are we making during peak periods?**  
-   → Answered in [Key Insights – Bullet 6,7 and 8](#key-insights)
+   → Answered in [Key Insights – Bullet 6,7 and 8](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-key-insights)
 
 3. **What are our best and worst-selling pizzas?**  
-   → Answered in [Key Insights – Bullet 3](#key-insights)
+   → Answered in [Key Insights – Bullet 3](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-key-insights)
 
 4. **What’s our average order value (AOV)?**  
-   → Answered in [Key Insights – Bullet 5](#key-insights)
+   → Answered in [Key Insights – Bullet 5](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-key-insights)
 
 5. **How well are we utilizing our seating capacity?**  
-   → Answered in [Key Insights – Bullet 4](#key-insights)
+   → Answered in [Key Insights – Bullet 4](https://github.com/anmoljaincma/pizza_project_1_intership/blob/main/README.md#-key-insights)
 
 6. **Are there opportunities to increase sales through promotions or combos?**  
    → Answered in [Recommendations](#recommendations) _(if you added this section)_
